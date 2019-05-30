@@ -4,32 +4,32 @@ import Chess.ChessPiece;
 
 public class UI {
 
-		public static void printBoard(ChessPiece[][] pieces)
+	public static void printBoard(ChessPiece[][] pieces)
+	{
+		for (int i = 0; i<pieces.length; i++)
 		{
-			for (int i = 0; i<pieces.length; i++)
+			System.out.print((8-i) + " ");
+
+			for (int j = 0; j<pieces.length;  j++)
 			{
-				System.out.print((8-i) + " ");
-				
-				for (int j = 0; j<pieces.length;  j++)
-				{
-					printPiece(pieces[i][j]);
-					
-				}
-				System.out.println();
+				printPiece(pieces[i][j]);
+
 			}
-			System.out.println("  a b c d e f g h");
+			System.out.println();
 		}
-		
-		private static void printPiece(ChessPiece piece)
+		System.out.println("  a b c d e f g h");
+	}
+
+	private static void printPiece(ChessPiece piece)
+	{
+		if (piece == null) {
+			System.out.print("-");
+		}
+		else
 		{
-			if (piece == null) {
-				System.out.print("-");
-			}
-			else
-			{
-				System.out.print(piece);
-				
-			}
-			System.out.print(" ");
+			System.out.print(piece);
+
 		}
+		System.out.print(" ");
+	}
 }
