@@ -51,6 +51,27 @@ public class Board {
 		pieces [position.getRow()] [position.getColumn()] = piece;
 		piece.position = position;
 	}
+	
+	public Piece removePiece(Position position)
+	{
+		//programação defensiva (se a posição n existe)
+		if (!PositionExists(position))
+		{
+			throw new BoardException("Position do not exists!");
+
+		}
+		
+		if(piece(position) == null)
+		{
+			return null;
+		}
+		//retorna a peça retirada, zera na matrix onde ela estava
+		Piece aux = piece(position);
+		aux.position = null;
+		pieces[position.getRow()][position.getColumn()] = null;
+		return aux;
+		
+	}
 
 	public boolean PositionExists(int row, int column)
 	{
@@ -71,5 +92,7 @@ public class Board {
 		}
 		return piece(position) != null;
 	}
+	
+	
 
 }
